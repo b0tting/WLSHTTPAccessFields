@@ -24,7 +24,3 @@ public class HTTPAccessFields implements CustomELFLogger {
         buff.appendValueOrDash(getIP(metrics));
     }
 }
-
-
-
-
