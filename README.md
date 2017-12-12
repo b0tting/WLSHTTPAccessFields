@@ -1,6 +1,12 @@
 HTTP logging in WebLogic uses the [common log format](https://en.wikipedia.org/wiki/Common_Log_Format) by [default](https://docs.oracle.com/cd/E24329_01/web.1211/e24432/web_server.htm#CNFGD204). This means you log the IP address from which the HTTP request originated. And if basic auth was used, the authenticating username is logged as well. This has little use in a web container based environment, where you would use form based authentication or some fancy single-sign variant. 
 
-WebLogic also offers the ["extended log format"](https://en.wikipedia.org/wiki/Extended_Log_Format). The available values allow for some additional fields in your logfile, but a huge ommission is the username in the list of available options. To roll your own, you need to implement the CustomELFLogger interface, which I did for you in this small project. This jar adds the username and originating IP address (if passed by proxies) to the access log. 
+WebLogic also offers the ["extended log format"](https://en.wikipedia.org/wiki/Extended_Log_Format). The available values allow for some additional fields in your logfile, but a huge ommission is the username in the list of available options. To roll your own, you need to implement the CustomELFLogger interface, which I did for you in this small project. This jar adds the username and originating IP address (if passed by proxies) to the access log.
+ 
+ An example log line showing the loggin in user and origin IP:
+ ```
+ 2017-12-12      11:34:49        weblogic_dev 111.110.110.129    -       GET     0a226714-44cd-4aa1-b2c0-90d04afabd96-0000018d   0       /servicebus/images/navi_designer_24_dwn.png     200     623
+
+ ```
 
 ## Installation
 
